@@ -1,1 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aceros Ugartesa S.A.</title>
 
+  <!-- Fuente e íconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --gris-oscuro: #2b2b2b;
+      --amarillo: #ffcc00;
+      --blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--blanco);
+      color: var(--gris-oscuro);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--blanco);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    header img {
+      height: 55px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--gris-oscuro);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--amarillo);
+    }
+
+    /* HERO */
+    .hero {
+      background: url('/mnt/data/Portada_Facebook.png') no-repeat center center/cover;
+      color: var(--blanco);
+      text-align: left;
+      padding: 140px 40px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 900px;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: var(--amarillo);
+      color: var(--gris-oscuro);
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e6b800;
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: var(--gris-oscuro);
+    }
+
+    /* SERVICIOS */
+    .servicios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .servicio {
+      background-color: #f8f8f8;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .servicio:hover {
+      transform: translateY(-5px);
+    }
+
+    .servicio i {
+      font-size: 40px;
+      color: var(--amarillo);
+      margin-bottom: 15px;
+    }
+
+    .servicio h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    /* CONTACTO */
+    .contacto-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      background: #f9f9f9;
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .contacto-info div {
+      text-align: left;
+    }
+
+    .contacto-info i {
+      color: var(--amarillo);
+      margin-right: 10px;
+    }
+
+    /* REDES */
+    .sociales {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .sociales a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 24px;
+      color: var(--gris-oscuro);
+      transition: color 0.3s;
+    }
+
+    .sociales a:hover {
+      color: var(--amarillo);
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--gris-oscuro);
+      color: var(--blanco);
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    footer a {
+      color: var(--amarillo);
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE NAV */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        background: var(--blanco);
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        display: none;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <img src="/mnt/data/Portada_Facebook.png" alt="Logo Aceros Ugartesa S.A.">
+    <nav>
+      <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#nosotros">Sobre Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <h1>Expertos en acero y carpintería metálica</h1>
+      <p>En <strong>Aceros Ugartesa</strong> ofrecemos materiales de alta calidad: láminas, planchas, estructuras y herramientas para tus proyectos metálicos.</p>
+      <a href="#contacto" class="btn">Contáctanos</a>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h2>Nuestros Servicios</h2>
+    <div class="servicios">
+      <div class="servicio">
+        <i class="fa-solid fa-store"></i>
+        <h3>Venta de materiales de ferretería</h3>
+        <p>Amplio stock de materiales de construcción, ferretería y acero de alta resistencia para tus proyectos.</p>
+      </div>
+      <div class="servicio">
+        <i class="fa-solid fa-industry"></i>
+        <h3>Fabricación de estructuras metálicas</h3>
+        <p>Diseño y fabricación de estructuras a la medida y carpintería metálica de excelente calidad.</p>
+      </div>
+      <div class="servicio">
+        <i class="fa-solid fa-wrench"></i>
+        <h3>Reparaciones y mantenimiento</h3>
+        <p>Brindamos servicio técnico especializado para la reparación y mantenimiento de estructuras metálicas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <section id="catalogo">
+    <h2>Catálogo</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">Consulta nuestro catálogo de productos: láminas, tubos, planchas, herramientas, pernos, estructuras y más. Contáctanos para cotizaciones personalizadas.</p>
+  </section>
+
+  <!-- SOBRE NOSOTROS -->
+  <section id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p style="text-align:center; max-width:900px; margin:auto;">Aceros Ugartesa S.A. es una empresa peruana especializada en el suministro, diseño y fabricación de productos metálicos. Nos enfocamos en ofrecer soluciones en acero y carpintería metálica, garantizando calidad, precisión y cumplimiento en cada proyecto.</p>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="contacto-info">
+      <div><i class="fa-solid fa-location-dot"></i> <strong>Dirección:</strong><br> Av. Pastor Sevilla Mz "C" Lt. 16, Villa el Salvador, Perú</div>
+      <div><i class="fa-solid fa-phone"></i> <strong>Teléfono:</strong><br> +51 955 015 537</div>
+      <div><i class="fa-solid fa-envelope"></i> <strong>Correo:</strong><br> contacto@augartesa.com</div>
+      <div><i class="fa-solid fa-clock"></i> <strong>Horarios:</strong><br> Lun–Sab: 9:00 AM – 6:00 PM</div>
+    </div>
+
+    <div class="sociales">
+      <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://wa.me/51955015537?text=Hola%20Aceros%20Ugartesa%2C%20quisiera%20más%20información" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Aceros Ugartesa S.A. — Todos los derechos reservados. 
+      <a href="#">Aviso de privacidad</a>
+    </p>
+  </footer>
+
+  <!-- SCRIPT para menú móvil -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('nav ul');
+    menuToggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
