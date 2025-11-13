@@ -266,25 +266,102 @@
   font-size: 1.1rem;
   margin-bottom: 30px;
 }
+
+    /* ===== HEADER ===== */
+.header {
+  background-color: #2e2e2e; /* gris oscuro */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Logo */
+.header img {
+  height: 60px;
+  width: auto;
+}
+
+/* Navegación */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #ffcc00; /* amarillo construcción */
+}
+
+/* Botón menú móvil */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .navbar ul {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: #2e2e2e;
+    flex-direction: column;
+    width: 200px;
+    text-align: center;
+    display: none;
+    padding: 15px 0;
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
     
   </style>
 </head>
 <body>
 
-  <!-- ENCABEZADO -->
-  <header>
+ <!-- ENCABEZADO -->
+<header class="header">
+  <div class="logo">
     <img src="https://github.com/halshs-droid/aceros-ugartesa/blob/main/Logito.png?raw=true" alt="Logo Aceros Ugartesa S.A.">
-    <nav>
-      <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#catalogo">Catálogo</a></li>
-        <li><a href="#nosotros">Sobre Nosotros</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  </div>
+
+  <nav class="navbar">
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <ul class="nav-list" id="nav-list">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#nosotros">Sobre Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
 
   <!-- HERO -->
 <section class="hero" id="inicio">
@@ -307,12 +384,12 @@
       <div class="servicio">
         <i class="fa-solid fa-industry"></i>
         <h3>Fabricación de estructuras metálicas</h3>
-        <p>Diseño y fabricación de estructuras a la medida y carpintería metálica de excelente calidad.</p>
+        <p>Diseño y fabricación de estructuras a la medida y carpintería metálica como perfiles, tubos, planchas, herramientas y accesorios utilizados en trabajos estructurales, soldadura, cerrajería y construcción metálica de excelente calidad.</p>
       </div>
       <div class="servicio">
         <i class="fa-solid fa-wrench"></i>
         <h3>Reparaciones y mantenimiento</h3>
-        <p>Brindamos servicio técnico especializado para la reparación y mantenimiento de estructuras metálicas.</p>
+        <p>Brindamos servicio técnico especializado para la reparación y mantenimiento de estructuras metálicas .</p>
       </div>
     </div>
   </section>
@@ -326,7 +403,7 @@
   <!-- SOBRE NOSOTROS -->
   <section id="nosotros">
     <h2>Sobre Nosotros</h2>
-    <p style="text-align:center; max-width:900px; margin:auto;">Aceros Ugartesa S.A. es una empresa peruana especializada en el suministro, diseño y fabricación de productos metálicos. Nos enfocamos en ofrecer soluciones en acero y carpintería metálica, garantizando calidad, precisión y cumplimiento en cada proyecto.</p>
+    <p style="text-align:center; max-width:900px; margin:auto;">Aceros Ugartesa S.A. Empresa peruana dedicada a la comercialización de productos ferreteros y materiales para carpintería metalmecánica. Ofrece una amplia variedad de aceros, perfiles, tubos, planchas, herramientas y accesorios utilizados en trabajos estructurales, soldadura, cerrajería y construcción metálica.</p>
   </section>
 
   <!-- CONTACTO -->
